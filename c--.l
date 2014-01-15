@@ -46,7 +46,7 @@ espaco      [ \t]+
 {numero}        {return NUM;}
 {id}            {return ID;}
 "{"             {return comentario2();}
-.               {return erro();}
+.               {return ERROR;}
 
 %%
 int yywrap(void)
@@ -54,15 +54,7 @@ int yywrap(void)
   return 1;
 }
 
-erro()
-{
-   char c;
-   c=input();
-   if (c=="\t")
-     return;
-   else
-     return ERROR;
-}
+
 comentario()
 {
     char c,c1;
